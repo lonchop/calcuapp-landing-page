@@ -1,100 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root {
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --btn-color: #fdfdfd;
+  /* button color*/
+  --btn-bg: #0d0d0d;
+  /* button bg color*/
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-text-color: #000;
+  --link-hover: #6dbb00;
+  --footer-link-hover: #6dbb00;
+  --input-focus-bd-color: #0d0d0d;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-  margin: 0;
+header {
+  /* background-color: #fff;
+    color: #000; */
+}
+
+header>.collapsible-header {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  gap: 1rem;
+  width: 100%;
+  background-color: inherit;
+  place-content: center;
+  overflow: hidden;
+  transition: width 0.3s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.animated-collapse {
+  transition: width 0.3s ease;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.header-links {
+  display: flex;
+  align-items: center;
+  min-width: fit-content;
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: background-color 0.5s, color 0.5s;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+
+.header-links:hover {
+  color: var(--link-hover);
 }
 
-.card {
-  padding: 2em;
+.material-icons.md-40 {
+  font-size: 40px;
 }
 
-.read-the-docs {
-  color: #888;
+.primary-text-color {
+  color: var(--primary-text-color);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.opacity-0 {
+  opacity: 0 !important;
+}
+
+.opacity-100 {
+  opacity: 100 !important;
+}
+
+.btn {
+  padding: 10px 15px;
+  width: max-content;
+  border-radius: 25px;
+  color: var(--btn-color);
+  background-color: var(--btn-bg);
+  justify-content: center;
+  align-items: center;
+  display: flex;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
+.btn:hover {}
+
+.btn:disabled {
+  cursor: default;
+}
+
+.input {
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 25px;
+  /* outline: none; */
+  min-width: 100px;
+  border: 2px solid #818080;
+  transition: border 0.3s;
+}
+
+.input:active,
+.input:focus,
+.input:focus-within {
+  border: 2px solid var(--input-focus-bd-color);
+}
+
+.input-error {
+  border-bottom: 3px solid #ff1e1e;
+}
+
+.input-error:focus-within {
+  border-bottom: 3px solid #fd0101;
+}
+
+
+/* Navigation dots styling */
+.dots-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-link {
+  color: #0d0d0d;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--footer-link-hover);
+}
+
+
+.review-container {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+
+.review-card {
+  box-shadow: 0px 2px 4px #757474a0;
+  border-radius: 15px;
+  /* width: 200px; */
+  /* height: 550px; */
+  padding: 10px;
+}
+
+/* --------- collapsible div ---------- */
+.collapsible {
+  background-color: #f3f0f0;
+  color: #2b2929;
+  /* cursor: pointer; */
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+/* Style for the collapsible content */
+.content {
+  padding: 0 18px;
+  /* display: none; */
+  height: 0px;
+  overflow: hidden;
+  background-color: transparent;
+  transition: height 0.5s;
+  text-align: justify;
+  margin-top: 10px;
+}
+
+.collapsible .active,
+.collapsible:hover {
+  /* background-color: #dedddd; */
+}
+
+@media not all and (min-width: 1024px) {
+  header .collapsible-header {
+    position: fixed;
+    right: 0px;
+    flex-direction: column;
+    opacity: 0;
+    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
+    width: 0vw;
+    justify-content: space-between;
+    padding: 5px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    place-items: end;
     background-color: #ffffff;
+    color: #000000;
+    overflow-y: auto;
+    box-shadow: 2px 0px 3px #000;
   }
-  a:hover {
-    color: #747bff;
+
+  .header-links {
+    color: black;
   }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+
+}
